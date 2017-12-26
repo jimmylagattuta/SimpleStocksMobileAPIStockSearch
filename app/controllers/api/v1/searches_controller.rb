@@ -1,10 +1,41 @@
 class Api::V1::SearchesController < ApplicationController
+	skip_before_action :verify_authenticity_token
+
 	def search
+		# stocks = StockQuote::Stock.quote("aapl,tsla")
+
 		puts "*" * 100
 		if params
 			puts "params recieved"
+			puts "params"
+			puts params.inspect
+			sym = params['symbol']
+			stock_search = StockQuote::Stock.quote(sym)
+			puts "stock_search"
+			puts stock_search.inspect
+			puts "stock search.l(closing price per share)"
+			puts stock_search.l
+			puts "stock_search.c(loss_or_gain)"
+			puts stock_search.c
+			puts "stock_search.op(opening price per share)"
+			puts stock_search.op
+			puts "stock_search.hi(days high)"
+			puts stock_search.hi
+			puts "stock_search.lo(days low)"
+			puts stock_search.lo
+
+			price_per_share = stock_search.l
+			loss_or_gain = stock_search.c
+			high = stock_search.hi
+			low = stock_search.lo
+			open = stock_search.op
+
 			message = {
-				content: "Params Recieeved"
+				price_per_share: price_per_share,
+				loss_or_gain: loss_or_gain,
+				high: high,
+				low: low,
+				open: open
 			}
 		else
 			puts "NO params"
