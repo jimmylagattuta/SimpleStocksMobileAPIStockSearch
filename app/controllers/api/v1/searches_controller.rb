@@ -29,8 +29,16 @@ class Api::V1::SearchesController < ApplicationController
 			high = stock_search.hi
 			low = stock_search.lo
 			open = stock_search.op
+			symbol = stock_search.symbol
+			name = stock_search.name
+			puts "name"
+			puts name
+			puts "symbol"
+			puts symbol
 
 			message = {
+				symbol: symbol,
+				name: name,
 				price_per_share: price_per_share,
 				loss_or_gain: loss_or_gain,
 				high: high,
