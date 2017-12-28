@@ -4,25 +4,25 @@ class Api::V1::SearchesController < ApplicationController
 	def search
 		# stocks = StockQuote::Stock.quote("aapl,tsla")
 
-		puts "*" * 100
+		# puts "*" * 100
 		if params
-			puts "params recieved"
-			puts "params"
-			puts params.inspect
+			# puts "params recieved"
+			# puts "params"
+			# puts params.inspect
 			sym = params['symbol']
 			stock_search = StockQuote::Stock.quote(sym)
-			puts "stock_search"
-			puts stock_search.inspect
-			puts "stock search.l(closing price per share)"
-			puts stock_search.l
-			puts "stock_search.c(loss_or_gain)"
-			puts stock_search.c
-			puts "stock_search.op(opening price per share)"
-			puts stock_search.op
-			puts "stock_search.hi(days high)"
-			puts stock_search.hi
-			puts "stock_search.lo(days low)"
-			puts stock_search.lo
+			# puts "stock_search"
+			# puts stock_search.inspect
+			# puts "stock search.l(closing price per share)"
+			# puts stock_search.l
+			# puts "stock_search.c(loss_or_gain)"
+			# puts stock_search.c
+			# puts "stock_search.op(opening price per share)"
+			# puts stock_search.op
+			# puts "stock_search.hi(days high)"
+			# puts stock_search.hi
+			# puts "stock_search.lo(days low)"
+			# puts stock_search.lo
 
 			price_per_share = stock_search.l
 			price_per_share = price_per_share.gsub(/[^\d\.]/, '').to_f
@@ -35,22 +35,22 @@ class Api::V1::SearchesController < ApplicationController
 			open = open.gsub(/[^\d\.]/, '').to_f
 			symbol = stock_search.symbol
 			name = stock_search.name
-			puts "name"
-			puts name
-			puts "symbol"
-			puts symbol
-			puts "stock_search"
-			puts stock_search.inspect
-			puts "stock search.l(closing price per share)"
-			puts stock_search.l
-			puts "stock_search.c(loss_or_gain)"
-			puts stock_search.c
-			puts "stock_search.op(opening price per share)"
-			puts stock_search.op
-			puts "stock_search.hi(days high)"
-			puts stock_search.hi
-			puts "stock_search.lo(days low)"
-			puts stock_search.lo
+			# puts "name"
+			# puts name
+			# puts "symbol"
+			# puts symbol
+			# puts "stock_search"
+			# puts stock_search.inspect
+			# puts "stock search.l(closing price per share)"
+			# puts stock_search.l
+			# puts "stock_search.c(loss_or_gain)"
+			# puts stock_search.c
+			# puts "stock_search.op(opening price per share)"
+			# puts stock_search.op
+			# puts "stock_search.hi(days high)"
+			# puts stock_search.hi
+			# puts "stock_search.lo(days low)"
+			# puts stock_search.lo
 
 			message = {
 				symbol: symbol,
@@ -62,36 +62,36 @@ class Api::V1::SearchesController < ApplicationController
 				open: open
 			}
 		else
-			puts "NO params"
+			# puts "NO params"
 			message = {
 				content: "This wont show"
 			}
 		end
 		render json: message
-		puts "*" * 100
+		# puts "*" * 100
 	end
 
 	def search_to_sell
-		puts "*" * 100
+		# puts "*" * 100
 		if params
-			puts "params recieved"
-			puts "params"
-			puts params.inspect
+			# puts "params recieved"
+			# puts "params"
+			# puts params.inspect
 			sym = params['jsonSymbol'] || params['symbolJSON']
 			shares = params['jsonShares']
 			stock_search = StockQuote::Stock.quote(sym)
-			puts "stock_search"
-			puts stock_search.inspect
-			puts "stock search.l(closing price per share)"
-			puts stock_search.l
-			puts "stock_search.c(loss_or_gain)"
-			puts stock_search.c
-			puts "stock_search.op(opening price per share)"
-			puts stock_search.op
-			puts "stock_search.hi(days high)"
-			puts stock_search.hi
-			puts "stock_search.lo(days low)"
-			puts stock_search.lo
+			# puts "stock_search"
+			# puts stock_search.inspect
+			# puts "stock search.l(closing price per share)"
+			# puts stock_search.l
+			# puts "stock_search.c(loss_or_gain)"
+			# puts stock_search.c
+			# puts "stock_search.op(opening price per share)"
+			# puts stock_search.op
+			# puts "stock_search.hi(days high)"
+			# puts stock_search.hi
+			# puts "stock_search.lo(days low)"
+			# puts stock_search.lo
 			price_per_share = stock_search.l
 			price_per_share = price_per_share.gsub(/[^\d\.]/, '').to_f
 			loss_or_gain = stock_search.c
@@ -103,30 +103,30 @@ class Api::V1::SearchesController < ApplicationController
 			open = open.gsub(/[^\d\.]/, '').to_f
 			symbol = stock_search.symbol
 			name = stock_search.name
-			puts "name"
-			puts name
-			puts "symbol"
-			puts symbol
-			puts "stock_search"
-			puts stock_search.inspect
-			puts "stock search.l(closing price per share)"
-			puts stock_search.l
-			puts "stock_search.c(loss_or_gain)"
-			puts stock_search.c
-			puts "stock_search.op(opening price per share)"
-			puts stock_search.op
-			puts "stock_search.hi(days high)"
-			puts stock_search.hi
-			puts "stock_search.lo(days low)"
-			puts stock_search.lo
-			puts "&&&&&&&&&"
-			puts "shares.to_i"
-			puts shares.to_i
+			# puts "name"
+			# puts name
+			# puts "symbol"
+			# puts symbol
+			# puts "stock_search"
+			# puts stock_search.inspect
+			# puts "stock search.l(closing price per share)"
+			# puts stock_search.l
+			# puts "stock_search.c(loss_or_gain)"
+			# puts stock_search.c
+			# puts "stock_search.op(opening price per share)"
+			# puts stock_search.op
+			# puts "stock_search.hi(days high)"
+			# puts stock_search.hi
+			# puts "stock_search.lo(days low)"
+			# puts stock_search.lo
+			# puts "&&&&&&&&&"
+			# puts "shares.to_i"
+			# puts shares.to_i
 			shares = shares.to_i
 			calculation = price_per_share * shares
 			calculation = calculation.round(2)
-			puts "calculation"
-			puts calculation
+			# puts "calculation"
+			# puts calculation
 			message = {
 				jsonCalculation: calculation,
 				jsonShares: shares,
@@ -139,13 +139,13 @@ class Api::V1::SearchesController < ApplicationController
 				open: open
 			}
 		else	
-			puts "NO params"
+			# puts "NO params"
 			message = {
 				content: "This wont show"
 			}
 		end
 		render json: message
-		puts "*" * 100
+		# puts "*" * 100
 	end
 end
 
