@@ -25,16 +25,32 @@ class Api::V1::SearchesController < ApplicationController
 			puts stock_search.lo
 
 			price_per_share = stock_search.l
+			price_per_share = price_per_share.gsub(/[^\d\.]/, '').to_f
 			loss_or_gain = stock_search.c
 			high = stock_search.hi
+			high = high.gsub(/[^\d\.]/, '').to_f
 			low = stock_search.lo
+			low = low.gsub(/[^\d\.]/, '').to_f
 			open = stock_search.op
+			open = open.gsub(/[^\d\.]/, '').to_f
 			symbol = stock_search.symbol
 			name = stock_search.name
 			puts "name"
 			puts name
 			puts "symbol"
 			puts symbol
+			puts "stock_search"
+			puts stock_search.inspect
+			puts "stock search.l(closing price per share)"
+			puts stock_search.l
+			puts "stock_search.c(loss_or_gain)"
+			puts stock_search.c
+			puts "stock_search.op(opening price per share)"
+			puts stock_search.op
+			puts "stock_search.hi(days high)"
+			puts stock_search.hi
+			puts "stock_search.lo(days low)"
+			puts stock_search.lo
 
 			message = {
 				symbol: symbol,
