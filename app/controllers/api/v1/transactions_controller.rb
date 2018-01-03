@@ -1,4 +1,7 @@
 class Api::V1::TransactionsController < ApplicationController
+	skip_before_action :verify_authenticity_token
+
+	
 	def buy_stocks
 		puts "*" * 100
 		puts "params recieved"
