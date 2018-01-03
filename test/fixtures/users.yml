@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  cash: 1
+  stock_capital: 1
+
+two:
+  email: MyString
+  cash: 1
+  stock_capital: 1

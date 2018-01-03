@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   post "/api/v1/searches/search" => "api/v1/searches#search"
   post "/api/v1/searches/toSell" => "api/v1/searches#search_to_sell"
+  post "/api/v1/transactions/buy_stocks" => "api/v1/transactions#buy_stocks"
+  post "/api/v1/users/signup" => "api/v1/users#signup"
 end
