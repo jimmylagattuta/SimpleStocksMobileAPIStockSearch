@@ -34,10 +34,14 @@ class Api::V1::TransactionsController < ApplicationController
 						  user_id: id
 						)
 		y.save
+		userstocks = []
+		x.userstocks.each do |i|
+			userstocks << i
+		end
 		if x.save && y.save
 			message = {
 				content: x,
-				stocks: y
+				userStocks: userstocks
 			}
 		else
 			message = {
