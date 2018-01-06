@@ -22,7 +22,8 @@ class Api::V1::UsersController < ApplicationController
 		puts params
 		email = params['jsonEmail']
 		uid = params['jsonUID']
-		x = User.find_by(email: params['jsonEmail'])
+		jsonID = params['jsonID']
+		x = User.find_by(id: jsonID)
 		puts "@_@" * 10
 		puts x
 		x.uid = uid
