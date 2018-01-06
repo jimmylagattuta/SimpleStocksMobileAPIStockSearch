@@ -8,6 +8,7 @@ class Api::V1::TransactionsController < ApplicationController
 		pps = params['jsonPPS']
 		cash = params['jsonCash']
 		quantity = params['jsonQuantity']
+		quantity = quantity.to_i
 		symbol = params['jsonSymbol']
 		email = params['jsonEmail']
 		uid = params['jsonUID']
