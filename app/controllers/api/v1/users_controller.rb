@@ -41,4 +41,13 @@ class Api::V1::UsersController < ApplicationController
 		render json: message
 		puts "*" * 100
 	end
+
+	def cash
+		id = params['rubyID']
+		x = User.find_by(id: id)
+		message = {
+			content: x
+		}
+		render json: message
+	end
 end
