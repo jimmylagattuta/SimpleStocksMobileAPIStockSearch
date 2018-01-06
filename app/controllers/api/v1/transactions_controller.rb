@@ -26,9 +26,17 @@ class Api::V1::TransactionsController < ApplicationController
 		stock_cap = calc
 		x.stock_capital = stock_cap
 		x.save
-		if x.save
+		y = UserStock.new(symbol: symbol,
+						  purchase_pps: pps,
+						  current_pps: pps,
+						  quantity: quantity,
+						  user_id: id
+						)
+		y.save
+		if x.save && y.save
 			message = {
-				content: x
+				content: x,
+				stocks: y
 			}
 		else
 			message = {
