@@ -12,7 +12,7 @@ class Api::V1::TransactionsController < ApplicationController
 		email = params['jsonEmail']
 		uid = params['jsonUID']
 		id = params['jsonID']
-		x = User.find_by(uid: uid)
+		x = User.where(uid: uid)
 		puts "user"
 		puts x
 		message = {
