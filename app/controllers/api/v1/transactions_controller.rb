@@ -13,12 +13,28 @@ class Api::V1::TransactionsController < ApplicationController
 		uid = params['jsonUID']
 		id = params['jsonID']
 		x = User.where(id: id)
-
+		calc = pps * quantity
+		new_cash = cash - calc
+		puts "calc 1"
+		puts calc
+		calc = calc.round(2)
+		puts "calc 2"
+		puts calc
 		puts "user"
 		puts x.inspect
-		message = {
-			content: x
-		}
+		x.cash = new_cash
+		stock_cap = calc
+		x.stock_capital = stock_cap
+		x.save
+		if x.save
+			message = {
+				content: x
+			}
+		else
+			message = {
+				content: 'Error'	
+			}
+		end
 		render json: message
 		puts "*" * 100
 	end
