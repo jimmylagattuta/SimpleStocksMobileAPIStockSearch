@@ -12,13 +12,13 @@ class Api::V1::TransactionsController < ApplicationController
 		email = params['jsonEmail']
 		uid = params['jsonUID']
 		id = params['jsonID']
-		x = User.find_by(id: id)
+		x = User.find_by(uid: uid)
 		puts "user"
 		puts x
 		message = {
 			content: 'Params Recieved'
 		}
-		render json: massage
+		render json: message
 		puts "*" * 100
 	end
 end
