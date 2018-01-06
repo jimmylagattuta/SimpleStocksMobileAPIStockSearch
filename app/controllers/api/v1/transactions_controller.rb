@@ -13,9 +13,9 @@ class Api::V1::TransactionsController < ApplicationController
 		uid = params['jsonUID']
 		id = params['jsonID']
 		x = User.where(id: id)
-		
+
 		puts "user"
-		puts x
+		puts x.inspect
 		message = {
 			content: x
 		}
