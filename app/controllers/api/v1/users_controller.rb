@@ -22,15 +22,15 @@ class Api::V1::UsersController < ApplicationController
 		puts params
 		email = params['jsonEmail']
 		uid = params['jsonUID']
-		user = User.find_by(email: params['jsonEmail'])
+		x = User.find_by(email: params['jsonEmail'])
 		puts "@_@" * 10
-		puts user
-		user.uid = uid
-		user.cash = 100000
-		user.save
-		if user.save
+		puts x
+		x.uid = uid
+		x.cash = 100000
+		x.save
+		if x.save
 			message = {
-				data: user
+				data: x
 			}
 		else
 			message = {
