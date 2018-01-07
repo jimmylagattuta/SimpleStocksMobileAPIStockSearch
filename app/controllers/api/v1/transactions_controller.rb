@@ -13,7 +13,7 @@ class Api::V1::TransactionsController < ApplicationController
 		email = params['jsonEmail']
 		uid = params['jsonUID']
 		id = params['jsonID']
-		x = User.where(id: id)
+		x = User.find_by(id: id)
 		calc = pps * quantity
 		new_cash = cash - calc
 		puts "calc 1"
