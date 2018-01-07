@@ -50,4 +50,15 @@ class Api::V1::UsersController < ApplicationController
 		}
 		render json: message
 	end
+
+	def update_stocks
+		puts "*" * 100
+		puts "params"
+		puts params
+		message = {
+			content: 'Recieved'
+		}
+		render json: message
+		puts "*" * 100
+	end
 end

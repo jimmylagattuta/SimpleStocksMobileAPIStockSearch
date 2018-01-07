@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post "/api/v1/users/signup" => "api/v1/users#signup"
   post "/api/v1/users/set_capital" => "api/v1/users#set_capital"
   post "/api/v1/users/cash" => "api/v1/users#cash"
+  post "/api/v1/users/update_stocks" => "api/v1/users#update_stocks"
 end
