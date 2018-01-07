@@ -35,7 +35,7 @@ class Api::V1::TransactionsController < ApplicationController
 						)
 		y.save
 		userstocks = []
-		x.userstocks.each do |i|
+		x.user_stocks.each do |i|
 			userstocks << i
 		end
 		if x.save && y.save
